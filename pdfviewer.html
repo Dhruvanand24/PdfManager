@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Firease -->
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-storage-compat.js"></script>
+
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Css Styling -->
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/userhome.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <!-- Bootstrap V.5.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <link rel="icon" href="./images/logobackground.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>PDF Manager</title>
+</head>
+<body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="./images/medicinefinder.png" width="190px" alt="" srcset="">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="">EN</a>
+           
+            
+        </div>
+    </div>
+  <!-- Container to display the embedded PDF -->
+  <div id="pdfContainer"></div>
+
+  <script>
+    // Function to retrieve the PDF link from the query parameters
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // Get the PDF link from the query parameters
+    var link = getParameterByName("link");
+    console.log("printing the link", link);
+
+    // Create an iframe element to embed the PDF
+    var iframe = document.createElement("iframe");
+    iframe.src = ""+link;
+    iframe.style.width = "75%";
+    iframe.style.height = "70vh";
+
+    // Append the iframe to the PDF container
+    var pdfContainer = document.getElementById("pdfContainer");
+    pdfContainer.appendChild(iframe);
+  </script>
+  <button id ="sharebutton" onclick="sharebutton()">Share file</button>
+    <div class="input-fields">
+        <h2>Add Comment</h2>
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="comment" placeholder="Comment">
+        <button id="submitButton" onclick="uploadcomments(link)">Submit</button>
+      </div>
+      
+      
+      <script src="./js/userhome.js"></script>
+      <script src="./js/loginSignup.js"></script>
+</body>
+</html>

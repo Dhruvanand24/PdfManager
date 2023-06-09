@@ -25,11 +25,12 @@
     <title>PDF Manager</title>
 </head>
 <body>
+  
     <div class="nav">
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
             <div class="nav-title">
-                <img src="./images/medicinefinder.png" width="190px" alt="" srcset="">
+              <h2>PDF Manager</h2>
             </div>
         </div>
         <div class="nav-btn">
@@ -47,7 +48,15 @@
         </div>
     </div>
   <!-- Container to display the embedded PDF -->
-  <div id="pdfContainer"></div>
+  <div class="mainContainer" style="display: flex; width: 100%"> 
+    <div class="first" style="width: 70%; height: 100%">
+    <div id="pdfContainer"></div></div>
+    <div class="second" style="width: 30%; height: 700px; overflow:scroll">
+    <button id= "backbutton" onclick="loadcomments(link)" style="margin-bottom: 10px; margin-top: 5px; border-radius: 10px;">Go back</button>
+    <div id="card-list" ></div>
+    </div>
+
+  </div>
 
   <script>
     // Function to retrieve the PDF link from the query parameters
@@ -68,7 +77,7 @@
     // Create an iframe element to embed the PDF
     var iframe = document.createElement("iframe");
     iframe.src = ""+link;
-    iframe.style.width = "75%";
+    iframe.style.width = "95%";
     iframe.style.height = "70vh";
 
     // Append the iframe to the PDF container
@@ -76,6 +85,7 @@
     pdfContainer.appendChild(iframe);
   </script>
   <button id ="sharebutton" onclick="sharebutton()">Share file</button>
+  <button id="loadcomments" onclick="loadcomments(link)" style="border-radius: 20px;">load comments</button>
     <div class="input-fields">
         <h2>Add Comment</h2>
         <input type="text" id="name" placeholder="Name">
@@ -83,8 +93,11 @@
         <button id="submitButton" onclick="uploadcomments(link)">Submit</button>
       </div>
       
+  
+
       
-      <script src="./js/userhome.js"></script>
+      
+      <script src="./js/userhome.js" ></script>
       <script src="./js/loginSignup.js"></script>
 </body>
 </html>

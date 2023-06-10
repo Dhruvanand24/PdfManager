@@ -1,5 +1,6 @@
 ﻿# PdfManager
 website link: https://dhruvanand24.github.io/PdfManager/
+sample video: https://drive.google.com/file/d/1w1QqCJiZNVrax1eCyQeMHQOGRYJaxggA/view?usp=drive_link
 1. Signup with email and password.
 2. verify email via link provided in the verification email.
 3. select and uploadd pdf file.

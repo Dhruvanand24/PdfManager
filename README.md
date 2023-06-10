@@ -9,4 +9,5 @@ website link: https://dhruvanand24.github.io/PdfManager/
 7. add comments by providing your name.
 8. view all comments and their replies.
 9. anyone with the link can add comments regardless of whether they are a registered user or not.
-10. 
+10.note: The website is currently not responsive for all devices. open it in a laptop or a desktop.
+11. 
